@@ -279,6 +279,12 @@ let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines (us
 let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
 
 "~~~~~~~~~~~~~~~~~
+"   6.5 Vimtex   ~
+"~~~~~~~~~~~~~~~~~
+
+let g:vimtex_compiler_progname = 'nvr'
+
+"~~~~~~~~~~~~~~~~~
 "   6.6 Tabgar   ~
 "~~~~~~~~~~~~~~~~~
 nmap <F8> :TagbarToggle<CR>
