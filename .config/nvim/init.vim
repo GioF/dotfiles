@@ -111,8 +111,8 @@ call vundle#begin()
 
   set wrap " Wrap lines
 
-  set foldmethod=marker
-  set foldlevel=0 " Close every fold by default
+  set foldmethod=indent
+  set foldlevel=1 " Close every fold by default
   set modelines=1 " Modeline would be '" vim:foldmethod=marker:foldlevel=0' at the end of file
 
   " Disable automatic comment insertion
