@@ -15,6 +15,7 @@ call vundle#begin()
   Plugin 'majutsushi/tagbar'
   Plugin 'tpope/vim-surround'
   Plugin 'mhinz/vim-startify'
+
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/syntastic'
   Plugin 'airblade/vim-gitgutter'
@@ -23,6 +24,17 @@ call vundle#begin()
   Plugin 'Xuyuanp/nerdtree-git-plugin'
   Plugin 'enricobacis/vim-airline-clock'
   Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'majutsushi/tagbar'
+
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'enricobacis/vim-airline-clock'
+
+  Plugin 'godlygeek/tabular'
+  Plugin 'tpope/vim-surround'
+
+  Plugin 'scrooloose/syntastic'
+  Plugin 'airblade/vim-gitgutter'
 
   " Colorschemes
   Plugin 'chriskempson/base16-vim'
@@ -96,6 +108,9 @@ call vundle#begin()
 
   nnoremap Q <nop>              " Wtf is ex mode anyways
   inoremap jk <esc>             " Wtf is esc anyways
+
+  nnoremap <M-j> :m +1<CR>
+  nnoremap <M-k> :m -2<CR>
 
   "###############################
   "     3. Text, tab, indent     #
@@ -289,6 +304,26 @@ let g:vimtex_compiler_progname = 'nvr'
 "   6.6 Tabgar   ~
 "~~~~~~~~~~~~~~~~~
 nmap <F8> :TagbarToggle<CR>
+
+"~~~~~~~~~~~~~~~~~
+"  6.7 Snippets  ~
+"~~~~~~~~~~~~~~~~~
+
+" Use <C-l> to trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> to select text for visual placeholder of snippet
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> to jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> to jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> to both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 
 "####################
 "     7. Coding     #
