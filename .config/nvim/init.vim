@@ -301,11 +301,10 @@ nmap <F8> :TagbarToggle<CR>
 "~~~~~~~~~~~~~~~~~
 "  6.7 Snippets  ~
 "~~~~~~~~~~~~~~~~~
-
 " Use <C-l> to trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
-" Use <C-j> to select text for visual placeholder of snippet
+" Use <C-j> to select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> to jump to next placeholder, it's default of coc.nvim
@@ -316,7 +315,6 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> to both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
 
 "####################
 "     7. Coding     #
