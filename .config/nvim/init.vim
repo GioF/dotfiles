@@ -11,18 +11,10 @@ call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
    
   " Basics
-  Plugin 'godlygeek/tabular'
-  Plugin 'majutsushi/tagbar'
-  Plugin 'tpope/vim-surround'
   Plugin 'mhinz/vim-startify'
 
   Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'airblade/vim-gitgutter'
-  Plugin 'vim-airline/vim-airline'
-  Plugin 'scrooloose/nerdcommenter'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
-  Plugin 'enricobacis/vim-airline-clock'
   Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'majutsushi/tagbar'
