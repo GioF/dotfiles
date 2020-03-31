@@ -146,10 +146,10 @@ call vundle#begin()
   "     4. Moving around     #
   "###########################
   " Buffer switching left, down, up, right
-  map <c-h> <c-w>h
-  map <c-j> <c-w>j
-  map <c-k> <c-w>k
-  map <c-l> <c-w>l
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-l> <c-w>l
 
   " Buffer resizing
   map <leader>k :res +1<cr>
