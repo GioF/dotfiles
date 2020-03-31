@@ -1,0 +1,49 @@
+a
+c-h
+wq
+scout -ftsea 
+\h
+zh
+y
+open_with
+r
+rm
+move 
+d
+search videos
+search Vídeos
+open_with vlc
+open_with exec vlc
+open_with S vlc
+search jar
+search sun
+search jre
+search jdk
+search java
+search jvm
+search sh
+search shen
+search gogo
+search gog
+search gam
+search hosts
+search dme
+search qt
+help rename
+help 
+rename
+bulkrename
+bulkrename 
+search us
+search usb
+h
+help
+search config
+open_with vim
+open_with 
+:q
+search
+delete
+! rm *.webp
+delete *.webp
+
