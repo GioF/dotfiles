@@ -45,6 +45,7 @@ call vundle#begin()
   " Coding
   Plugin 'neoclide/coc.nvim'    " code completion
   Plugin 'lervag/vimtex'        " LaTeX
+  Plugin 'honza/vim-snippets'   " snippets
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
