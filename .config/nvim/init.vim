@@ -20,8 +20,8 @@ call vundle#begin()
   Plugin 'majutsushi/tagbar'
 
   Plugin 'vim-airline/vim-airline'
-  Plugin 'enricobacis/vim-airline-clock'
-
+  " Plugin 'enricobacis/vim-airline-clock'
+  
   Plugin 'godlygeek/tabular'
   Plugin 'tpope/vim-surround'
 
