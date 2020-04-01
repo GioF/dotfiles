@@ -81,7 +81,7 @@ call vundle#begin()
   set nobackup
   set nowb
   set noswapfile
-  set updatetime=30
+  set updatetime=100
 
   let g:tex_flavor = "latex" " Auto detect latex filetype
 
