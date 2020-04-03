@@ -104,6 +104,8 @@ call vundle#begin()
 
   nnoremap <M-j> :m +1<CR>
   nnoremap <M-k> :m -2<CR>
+  vnoremap <M-j> :m '>+1<CR>
+  vnoremap <M-k> :m '<-2<CR>
 
   "###############################
   "     3. Text, tab, indent     #
