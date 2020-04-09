@@ -1,0 +1,7 @@
+#!/bin/bash
+xrandr --newmode "1366x768" 85,503 1366 1436 1579 1792 768 771 774 798 -hsync -vsync
+xrandr --addmode VGA-1 1366x768
+xrandr --output VGA-1 --mode 1366x768
+ibus-daemon --xim &
+sleep 1
+compton &
