@@ -1,0 +1,16 @@
+#!/bin/bash
+# script that checks for unread mail and formats output
+DELIM=" "
+MAILDIR="$HOME/.local/share/mail"
+OUTPUT=""
+
+for folder in $(ls $MAILDIR) 
+do
+ OUTPUT+=$(ls "$MAILDIR/$folder/INBOX/new/" | wc -l | \
+   if [ $folder = "giofdcc" ]; then
+     xargs -I {} echo "拾 {}$DELIM"
+   elif [[ $folder = "giofgmail" ]]; then
+     xargs -I {} echo " {}"
+     fi)
+done
+echo $OUTPUT
