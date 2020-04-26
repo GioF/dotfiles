@@ -1,0 +1,13 @@
+#!/bin/sh
+
+saveMeme(){
+  if [ "$1" != "^https://*" ]; then exit 1; fi #check if string isn't an url 
+  case $1 in 
+    facebook*) tsp youtube-dl -u "$(pass Facebook/Vunhamail)" -p "$(pass Facebook/Vunha)" $1 -o "~/Vídeos/memes/$2.mp4" ;;
+    *) tsp youtube-dl $1 -o "~/Vídeos/memes/$2.mp4" ;;
+  esac
+}
+
+case $(printf "meme" | dmenu -p "Handle as...") in
+  "meme")  saveMeme "$1" "$(:|dmenu -p "With which name?")" ;;
+esac
