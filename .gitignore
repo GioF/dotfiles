@@ -1,2 +1,13 @@
 .config/nvim/bundle/*
 .config/nvim/coc-settings.json
+.local/bin/dragon
+.local/bin/genzathurarc
+.local/bin/magick
+.local/bin/pip
+.local/bin/pip3
+.local/bin/pip3.7
+.local/bin/wal
+.local/bin/zathura
+.local/state
+.local/share
+.local/lib
