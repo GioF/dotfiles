@@ -342,6 +342,7 @@ set updatetime=300
 set shortmess+=c
 
 set signcolumn=yes
+highlight SignColumn guibg=NONE
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
