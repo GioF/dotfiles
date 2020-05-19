@@ -256,132 +256,131 @@ call vundle#begin()
   let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
   let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
-let NERDTreeIgnore=[
-    \ 'node_modules$[[dir]]',
-    \ '.git$[[dir]]',
-    \ '.vscode$[[dir]]',
-    \ '.idea$[[dir]]',
-    \ '.DS_Store$[[file]]',
-    \ '.swp$[[file]]',
-    \ 'hdevtools.sock$[[file]]',
-    \ '.synctex.gz[[file]]',
-    \ '.fls[[file]]',
-    \ '.fdb_latexmk[[file]]',
-    \ '.aux[[file]]'
-\ ]
-
-
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-
-"~~~~~~~~~~~~~~~~~~~~~~~~
-"   6.4 Nerdcommenter   ~
-"~~~~~~~~~~~~~~~~~~~~~~~~
-let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
-let g:NERDCompactSexyComs = 1 " Use compact syntax for prettified multi-line comments
-let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDAltDelims_java = 1 " Set a language to use its alternate delimiters by default
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } } " Add your own custom formats or override the defaults
-let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
-
-"~~~~~~~~~~~~~~~~~
-"   6.5 Vimtex   ~
-"~~~~~~~~~~~~~~~~~
-
-let g:vimtex_compiler_progname = 'nvr'
-
-"~~~~~~~~~~~~~~~~~
-"   6.6 Tabgar   ~
-"~~~~~~~~~~~~~~~~~
-nmap <F8> :TagbarToggle<CR>
-
-"~~~~~~~~~~~~~~~~~
-"  6.7 Snippets  ~
-"~~~~~~~~~~~~~~~~~
-" Use <C-l> to trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> to select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> to jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> to jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> to both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-"####################
-"     7. Coding     #
-"####################
-"~~~~~~~~~~~~~~~
-"   7.1 I3WM   ~
-"~~~~~~~~~~~~~~~
-aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
-
-"####################
-"     7.coc.nvim    #
-"####################
-set hidden
-set nobackup
-set nowritebackup
-
-set cmdheight=2
-
-set updatetime=300
-set shortmess+=c
-
-set signcolumn=yes
-highlight SignColumn guibg=NONE
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <silent><expr> <S-TAB>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>check_back_space() ? "\<s-tab>" :
-      \ coc#refresh()
-
-inoremap <silent><expr> <A-TAB> coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') -1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
+  let NERDTreeIgnore=[
+      \ 'node_modules$[[dir]]',
+      \ '.git$[[dir]]',
+      \ '.vscode$[[dir]]',
+      \ '.idea$[[dir]]',
+      \ '.DS_Store$[[file]]',
+      \ '.swp$[[file]]',
+      \ 'hdevtools.sock$[[file]]',
+      \ '.synctex.gz[[file]]',
+      \ '.fls[[file]]',
+      \ '.fdb_latexmk[[file]]',
+      \ '.aux[[file]]'
+  \ ]
+  
+  
+  " NERDTress File highlighting
+  function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+   exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+  endfunction
+  
+  
+  "~~~~~~~~~~~~~~~~~~~~~~~~
+  "   6.4 Nerdcommenter   ~
+  "~~~~~~~~~~~~~~~~~~~~~~~~
+  let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
+  let g:NERDCompactSexyComs = 1 " Use compact syntax for prettified multi-line comments
+  let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left instead of following code indentation
+  let g:NERDAltDelims_java = 1 " Set a language to use its alternate delimiters by default
+  let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } } " Add your own custom formats or override the defaults
+  let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines (useful when commenting a region)
+  let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
+  
+  "~~~~~~~~~~~~~~~~~
+  "   6.5 Vimtex   ~
+  "~~~~~~~~~~~~~~~~~
+  
+  let g:vimtex_compiler_progname = 'nvr'
+  
+  "~~~~~~~~~~~~~~~~~
+  "   6.6 Tabgar   ~
+  "~~~~~~~~~~~~~~~~~
+  nmap <F8> :TagbarToggle<CR>
+  
+  "~~~~~~~~~~~~~~~~~
+  "  6.7 Snippets  ~
+  "~~~~~~~~~~~~~~~~~
+  " Use <C-l> to trigger snippet expand.
+  imap <C-l> <Plug>(coc-snippets-expand)
+  
+  " Use <C-j> to select text for visual placeholder of snippet.
+  vmap <C-j> <Plug>(coc-snippets-select)
+  
+  " Use <C-j> to jump to next placeholder, it's default of coc.nvim
+  let g:coc_snippet_next = '<c-j>'
+  
+  " Use <C-k> to jump to previous placeholder, it's default of coc.nvim
+  let g:coc_snippet_prev = '<c-k>'
+  
+  " Use <C-j> to both expand and jump (make expand higher priority.)
+  imap <C-j> <Plug>(coc-snippets-expand-jump)
+  
+  "####################
+  "     7. Coding     #
+  "####################
+  "~~~~~~~~~~~~~~~
+  "   7.1 I3WM   ~
+  "~~~~~~~~~~~~~~~
+  aug i3config_ft_detection
+    au!
+    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+  aug end
+  
+  "####################
+  "     7.coc.nvim    #
+  "####################
+  set hidden
+  set nobackup
+  set nowritebackup
+  
+  set cmdheight=2
+  
+  set updatetime=300
+  set shortmess+=c
+  
+  set signcolumn=yes
+  highlight SignColumn guibg=NONE
+  
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <silent><expr> <S-TAB>
+        \ pumvisible() ? "\<C-p>" :
+        \ <SID>check_back_space() ? "\<s-tab>" :
+        \ coc#refresh()
+  
+  inoremap <silent><expr> <A-TAB> coc#refresh()
+  
+  function! s:check_back_space() abort
+    let col = col('.') -1
+    return !col || getline('.')[col - 1] =~# '\s'
+  endfunction
+  
+  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+  " Coc only does snippet and additional edit on confirm.
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  
+  " Use `[g` and `]g` to navigate diagnostics
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  
+  " Remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  
+  " Use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
