@@ -99,8 +99,10 @@ call vundle#begin()
   nmap <silent> <leader>ev :e  $MYVIMRC<CR>
   nmap <silent> <leader>es :so $MYVIMRC<CR>
 
-  nnoremap Q <nop>              " Wtf is ex mode anyways
-  inoremap jk <esc>             " Wtf is esc anyways
+  " Wtf is ex mode anyways
+  nnoremap Q <nop>
+  " Wtf is esc anyways
+  inoremap jk <Esc>
 
   nnoremap <M-j> :m +1<CR>
   nnoremap <M-k> :m -2<CR>
