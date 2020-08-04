@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+case "$1" in 
+  add)
+    ADDRS=$(ipfs id -f="<addrs>\n" | awk '!/(\/ip4\/127\.0\.0\.1|\/ip4\/192\.168\.15|\/ip6\/\:\:1)/ {print }')
+    
+    FORMATEDADDRS="["
+    for addr in $ADDRS
+    do
+      FORMATEDADDRS="${FORMATEDADDRS}\"${addr}\", "
+    done
+    FORMATEDADDRS="${FORMATEDADDRS%??}]"
+   
+    curl \
+    -X POST \
+    -d "{
+      \"hashToPin\": \"$3\",
+      \"pinataMetadata\": {
+          \"name\": \"$2\"
+        },
+      \"pinataOptions\": {
+          \"hostNodes\": $FORMATEDADDRS
+        }
+      }" \
+      -H "Content-type: application/json" \
+      -H "pinata_api_key: $(pass pinata/api)" \
+      -H "pinata_secret_api_key: $(pass pinata/secret)" \
+    https://api.pinata.cloud/pinning/pinByHash/
+    ;;
+  list)
+    curl \
+      -X GET \
+      -H "Content-type: application/json" \
+      -H "pinata_api_key: $(pass pinata/api)" \
+      -H "pinata_secret_api_key: $(pass pinata/secret)" \
+      https://api.pinata.cloud/pinning/pinJobs
+    ;;
+esac
