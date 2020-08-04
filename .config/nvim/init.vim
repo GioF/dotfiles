@@ -22,17 +22,16 @@ call vundle#begin()
   Plugin 'vim-airline/vim-airline'
   " Plugin 'enricobacis/vim-airline-clock'
   
-  Plugin 'godlygeek/tabular'
-  Plugin 'tpope/vim-surround'
+  " Plugin 'tpope/vim-surround'
 
-  Plugin 'scrooloose/syntastic'
+  " Plugin 'scrooloose/syntastic'
   Plugin 'airblade/vim-gitgutter'
 
   " Colorschemes
-  Plugin 'chriskempson/base16-vim'
+  " Plugin 'chriskempson/base16-vim'
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'kristijanhusak/vim-hybrid-material'
-  Plugin 'morhetz/gruvbox'
+  " Plugin 'morhetz/gruvbox'
 
   " Coding
   Plugin 'neoclide/coc.nvim'    " code completion
@@ -109,6 +108,9 @@ call vundle#begin()
   nnoremap <M-k> :m -2<CR>
   vnoremap <M-j> :m '>+1<CR>
   vnoremap <M-k> :m '<-2<CR>
+
+  "close buffer but not window
+  map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
   "###############################
   "     3. Text, tab, indent     #
@@ -197,28 +199,28 @@ call vundle#begin()
 
   hi Normal guibg=NONE ctermbg=NONE
 
-  "#####################
-  "     6. Plugins     #
-  "#####################
-  "~~~~~~~~~~~~~~~~~~~~
-  "   6.1 Syntastic   ~
-  "~~~~~~~~~~~~~~~~~~~~
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-
-  " let g:syntastic_mode_map = { 'mode': 'passive' } "Enable if you want to disable syntastic on file open
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-
-  let g:syntastic_quiet_messages = {
-      \ "level":  "warnings",
-      \ "regex": [
-          \ '\m\[C03\d\d\]',
-          \ '\mpossible unwanted space at "{"'
-          \]}
+  " "#####################
+  " "     6. Plugins     #
+  " "#####################
+  " "~~~~~~~~~~~~~~~~~~~~
+  " "   6.1 Syntastic   ~
+  " "~~~~~~~~~~~~~~~~~~~~
+  " set statusline+=%#warningmsg#
+  " set statusline+=%{SyntasticStatuslineFlag()}
+  " set statusline+=%*
+  "
+  " " let g:syntastic_mode_map = { 'mode': 'passive' } "Enable if you want to disable syntastic on file open
+  " let g:syntastic_always_populate_loc_list = 1
+  " let g:syntastic_auto_loc_list = 1
+  " let g:syntastic_check_on_open = 1
+  " let g:syntastic_check_on_wq = 0
+  "
+  " let g:syntastic_quiet_messages = {
+  "     \ "level":  "warnings",
+  "     \ "regex": [
+  "         \ '\m\[C03\d\d\]',
+  "         \ '\mpossible unwanted space at "{"'
+  "         \]}
 
 
   "~~~~~~~~~~~~~~~~~~
@@ -335,6 +337,19 @@ call vundle#begin()
   "####################
   "     7.coc.nvim    #
   "####################
+  let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-json', 
+  \ 'coc-cmake',
+  \ 'coc-clangd',
+  \ 'coc-css',
+  \ 'coc-vimtex',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ ]
+  
   set hidden
   set nobackup
   set nowritebackup
@@ -356,7 +371,7 @@ call vundle#begin()
         \ <SID>check_back_space() ? "\<s-tab>" :
         \ coc#refresh()
   
-  inoremap <silent><expr> <A-TAB> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
   
   function! s:check_back_space() abort
     let col = col('.') -1
@@ -387,3 +402,11 @@ call vundle#begin()
       call CocAction('doHover')
     endif
   endfunction
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Remap for rename current word
+  nmap <F2> <Plug>(coc-rename)
+
+ let g:coc_disable_startup_warning = 1
