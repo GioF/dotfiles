@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#thanks again, luke
+
+systemregex="\(/boot\|/home\|/\)$"
+drives=$(lsblk -lp | grep "t /" | grep -v "$systemregex" | awk '{print $1, "(" $4 ")", "on", $7}')
+[[ "$drives" = "" ]] && exit
+chosen=$(echo "$drives" | dmenu -i -p "Which drive should umount?" | awk '{print $1}')
+[[ "$chosen" = "" ]] && exit
+sudo umount $chosen && pgrep -x dunst && notify-send "$chosen unmounted"

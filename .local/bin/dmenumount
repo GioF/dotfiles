@@ -1,0 +1,16 @@
+#!/bin/bash
+
+mountables=$(lsblk -lp | awk '/part $/ {print $1, "(" $4 ")"}')
+[[ "$mountables" = "" ]] && exit 1
+chosen=$(echo "$mountables" | dmenu -i -p "Mount which drive?" | awk '{print $1}')
+[[ "$chosen" = "" ]] && exit 1
+sudo mount "$chosen" && exit 0
+#TODO: MAKE SUGGESTIONS LOAD FROM USER DEFINED FILE
+dirs=$(find /mnt /media /home -type d -maxdepth 2 -empty 2>/dev/null)
+mountpoint=$(echo "$dirs" | dmenu -i -p "Mount where?")
+[[ "$mountpoint" = "" ]] && 1
+if [[ ! -d "$mountpoint" ]]; then
+  shouldmkdir=$(echo "no\nyes" | dmenu -i -p "$mountpoint doesn't exist. Create it?")
+  [[ "$shouldmkdir" = "yes" ]] && sudo mkdir -p "$mountpoint"
+fi
+sudo mount $chosen $mountpoint -o umask=000 && pgrep -x dunst && notify-send "$chosen mounted to $mountpoint"
