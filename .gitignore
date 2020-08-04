@@ -11,3 +11,4 @@
 .local/state
 .local/share
 .local/lib
+.local/bin/virtualenv
